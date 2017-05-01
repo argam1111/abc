@@ -1,0 +1,207 @@
+<html>
+  <head>
+	<title> Feedback Form </title>
+	<script language="javascript">
+		//validation for comments
+		function comment()
+		{
+			var p
+			p=document.myform.comments.value
+			if(p=="")
+			{
+				alert("Please put your comments")
+				return true
+			}
+			else
+			{
+			}
+			document.myform.comments.focus()
+			return false
+		}
+		//validation for name
+		function fname1()
+		{
+			var s,l1
+			s=document.myform.fname.value
+			l1=s.length
+			for(var i=0;i<l1;i++)
+			{
+				if((s.charCodeAt(i)>64&&s.charCodeAt(i)<91)||(s.charCodeAt(i)>96&&s.charCodeAt(i)<123)||(s.charCodeAt(i)==45)||(s.charCodeAt(i)==46)||(s.charCodeAt(i)==95)||(s.charCodeAt(i)==""))
+				{
+				}
+				else
+				{
+					alert("Please enter a valid first name")
+					document.myform.fname.focus()
+					return true
+				}
+			}
+			return false
+		}
+		function fname2()
+		{
+			var p
+			p=document.myform.fname.value
+			if(p=="")
+			{
+				alert("first name should not be empty")
+				return true
+			}
+			else
+			{
+			}
+			document.myform.fname.focus()
+			return false
+		}
+		//validation for e-mail id
+		function email()
+		{
+			var q,l2
+			q=document.myform.email.value
+			l2=q.length
+			if(q=="")
+			{
+				alert("email should not be empty")
+				document.myform.email.focus()
+				return false
+			}
+			if(q.indexOf("@")==0)
+			{
+				alert("Please enter valid email id")
+				return false
+			}
+			for(var i=0;i<l2.length;i++)
+			{
+				if(q.charCodeAt(i)!=64)
+				{
+					alert("@ must be there")
+					return true
+				}
+				return false
+			}
+			if((q.charCodeAt(i)>64&&q.charCodeAt(i)<91)||(q.charCodeAt(i)>96&&q.charCodeAt(i)<123)||(s.charCodeAt(i)==45)||(s.charCodeAt(i)==46)||(s.charCodeAt(i)==95)||(s.charCodeAt(i)=="")||(q.charCodeAt(i)>47&&q.charCodeAt(i)<58))
+			{
+			}
+			else
+			{
+				alert("invalid character")
+				return true
+			}
+			if(q.charAt(q.length-1)=='@')
+			{
+				alert("email id should not end with @")
+				return true
+			}
+			if(q.charAt(q.length-1)=='.')
+			{
+				alert("email id should not end with .")
+				return true
+			}
+			return false
+		}
+		//validation for tel no
+		function telno1()
+		{
+			var t
+			t=document.myform.telno.value
+			if(t=="")
+			{
+				alert("Please enter the tel no.")
+				return true
+			}
+			else
+			{
+			}
+			document.myform.telno.focus()
+			return false
+		}
+		function telno2()
+		{
+			var t1
+			t1=document.myform.telno.value
+			l3=t1.length
+			for(var i=0;i<l3;i++)
+			{
+				if((q.charCodeAt(i)>64&&q.charCodeAt(i)<91)||(q.charCodeAt(i)>96&&q.charCodeAt(i)<123)||(s.charCodeAt(i)==45)||(s.charCodeAt(i)==46)||(s.charCodeAt(i)==95)||(s.charCodeAt(i)==""))
+				{
+					alert("tel no. must be numeric only")
+					return true
+				}
+				else
+				{
+				}
+			}
+			return false
+		}
+		//validation for fax
+		function fax1()
+		{
+			var f1
+			f1=document.myform.fax.value
+			l3=f1.length
+			for(var i=1;i<l3;i++)
+			{
+				if((q.charCodeAt(i)>64&&q.charCodeAt(i)<91)||(q.charCodeAt(i)>96&&q.charCodeAt(i)<123)||(s.charCodeAt(i)==45)||(s.charCodeAt(i)==46)||(s.charCodeAt(i)==95)||(s.charCodeAt(i)==""))
+				{
+					alert("fax must be numeric only")
+					return true
+				}
+				else
+				{
+				}
+			}
+			return false
+		}
+		//main function
+		function check()
+		{
+			if(comment())
+				return false
+			if(fname1())
+				return false
+			if(fname2())
+				return false
+			if(email())
+				return false
+			if(telno1())
+				return false
+			if(telno2())
+				return false
+			if(fax1())
+				return false
+			return true
+		}
+	</script>
+  </head>
+  <body bgcolor="#6e6e6e">
+	<form name="myform" method="get" onSubmit="return check()">
+		<h4 align=center>Feedback Form</h4>
+		<table border=0 align=center>
+			<tr>
+				<td align=left>Name</td>
+				<td align=left><input type=text name="fname" size=35 maxlength=30></td>
+			</tr>
+			<tr>
+				<td align=left>E-mail</td>
+				<td align=left><input type=text name="email" size=35 maxlength=30></td>
+			</tr>
+			<tr>
+				<td align=left>Tel No.</td>
+				<td align=left><input type=text name="telno" size=17 maxlength=15></td>
+			</tr>
+			<tr>
+				<td align=left>Fax</td>
+				<td align=left><input type=text name="fax" size=17 maxlength=15></td>
+			</tr>
+		</table>
+		<p align=center>Enter your comments below</p>
+		<pre><center><textarea name="comments" rows=10 cols=42 maxlength=60></textarea></center></pre>
+		<table border=0 align=center>
+			<tr>
+				<td align=left><input type=submit value="Submit Comments"></td>
+				<td align=left><input type=reset value="Clear Form"></td>
+			</tr>
+		</table>
+	</form>
+  </body>
+</html>

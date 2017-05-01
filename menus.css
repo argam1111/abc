@@ -1,0 +1,41 @@
+
+body {
+	background: RGB(68,233,250);
+}
+ul {
+	list-style-type: none;
+	position: absolute;
+	left: -10%;
+	top: 5%;
+	display: block;
+}
+ul li {
+	margin-top: 5px;
+	margin-bottom: 5px;
+	font-family: tahoma;
+	letter-spacing: 0.8px;
+	font-size: 20;
+}
+ul li a {
+	text-indent: 10px;
+	background: RGB(186,239,248) none scroll repeat 0%;
+	/*border-right: 2px solid ivory;*/
+	cursor: pointer;
+	display: block;
+	overflow: hidden;
+	width: 200px;
+	height: 35px;
+}
+a:link {color: #0000ff; text-decoration: none;}
+a:visited {color: #0000ff; text-decoration: none;}
+a:hover {
+	color: #0000ff;
+	text-decoration: underline;
+	/*background: #abcdef;*/
+	font-weight: bold;
+}
+a:active {
+	color: #0000ff;
+	text-decoration: none;
+	font-style: italic;
+}

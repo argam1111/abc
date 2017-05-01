@@ -1,0 +1,102 @@
+CREATE DATABASE `inventory`;
+USE `inventory`;
+CREATE TABLE `inward` (
+  `in_tid` varchar(30) NOT NULL,
+  `in_matkey` int(10) unsigned DEFAULT NULL,
+  `in_qty` int(10) unsigned DEFAULT NULL,
+  `in_date` varchar(10) DEFAULT NULL
+) ;
+
+INSERT INTO `inward` (`in_tid`,`in_matkey`,`in_qty`,`in_date`) VALUES 
+ ('25/04/2017_m102',3,40,'25/04/2017'),
+ ('26/04/2017_m103',4,100,'26/04/2017'),
+ ('26/04/2017_m104',5,80,'26/04/2017'),
+ ('25/04/2017_m101',2,100,'25/04/2017'),
+ ('25/04/2017_m106',7,60,'25/04/2017'),
+ ('02/05/2017_m102',3,80,'02/05/2017');
+CREATE TABLE `material` (
+  `mat_key` int(10) unsigned NOT NULL,
+  `mat_id` varchar(10) DEFAULT NULL,
+  `mat_desc` varchar(150) DEFAULT NULL,
+  `mat_qty` int(10) unsigned DEFAULT NULL,
+  `minlvl` int(10) unsigned DEFAULT NULL,
+  `maxlvl` int(10) unsigned DEFAULT NULL,
+  `rolvl` int(10) unsigned DEFAULT NULL,
+  PRIMARY KEY (`mat_key`)
+);
+INSERT INTO `material` (`mat_key`,`mat_id`,`mat_desc`,`mat_qty`,`minlvl`,`maxlvl`,`rolvl`) VALUES 
+ (1,'','default',1,1,1,1),
+ (2,'m101','cooldrinks',120,10,200,15),
+ (3,'m102','cakes',90,10,100,15),
+ (4,'m103','chips',100,10,150,15),
+ (5,'m104','chocolates',120,10,120,15),
+ (6,'m105','biscuits',20,10,100,15),
+ (7,'m106','cadburrys',100,20,100,25);
+CREATE TABLE `outward` (
+  `out_tid` varchar(30) DEFAULT NULL,
+  `out_matkey` int(10) unsigned DEFAULT NULL,
+  `out_qty` int(10) unsigned DEFAULT NULL,
+  `out_date` varchar(10) DEFAULT NULL,
+  `out_jobno` varchar(20) DEFAULT NULL
+) ;
+INSERT INTO `outward` (`out_tid`,`out_matkey`,`out_qty`,`out_date`,`out_jobno`) VALUES 
+ ('29/04/2017_m102',3,20,'29/04/2017','00010'),
+ ('29/04/2017_m103',4,30,'29/04/2017','00010'),
+ ('26/04/2017_m102',3,30,'26/04/2017','00010');
+CREATE TABLE `pomaterial` (
+  `pm_pokey` int(10) unsigned DEFAULT NULL,
+  `pm_mno` varchar(20) DEFAULT NULL,
+  `pm_mat` varchar(20) DEFAULT NULL,
+  `pm_qty` int(10) unsigned DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+INSERT INTO `pomaterial` (`pm_pokey`,`pm_mno`,`pm_mat`,`pm_qty`) VALUES 
+ (2,'m106','cadburrys',45),
+ (2,'m102','cakes',20),
+ (2,'m107','cadburrys',20),
+ (3,'m103','chips',20),
+ (4,'m107','cadburrys',45),
+ (4,'m102','chips',50),
+ (4,'m101','cooldrinks',50),
+ (5,'m106','cooldrinks',45),
+ (5,'m102','cakes',20);
+CREATE TABLE `purorder` (
+  `po_key` int(10) unsigned NOT NULL,
+  `po_no` varchar(10) DEFAULT NULL,
+  `po_suppid` varchar(10) DEFAULT NULL,
+  `po_date` varchar(10) DEFAULT NULL,
+  PRIMARY KEY (`po_key`)
+);
+INSERT INTO `purorder` (`po_key`,`po_no`,`po_suppid`,`po_date`) VALUES 
+ (1,'','s100','01/01/1900'),
+ (2,'po101','s104','12/04/2017'),
+ (3,'po102','s106','12/05/2017'),
+ (4,'po103','s106','12/05/2017'),
+ (5,'po104','s102','14/04/2017');
+CREATE TABLE `supplier` (
+  `supp_key` int(10) NOT NULL,
+  `supp_id` varchar(10) DEFAULT NULL,
+  `supp_name` varchar(50) DEFAULT NULL,
+  `supp_addr` varchar(100) DEFAULT NULL,
+  `supp_phno` varchar(12) DEFAULT NULL,
+  `supp_vat` int(10) DEFAULT NULL,
+  `supp_tin` int(10) DEFAULT NULL,
+  PRIMARY KEY (`supp_key`)
+) ;
+INSERT INTO `supplier` (`supp_key`,`supp_id`,`supp_name`,`supp_addr`,`supp_phno`,`supp_vat`,`supp_tin`) VALUES 
+ (1,'','default','default','000000',0,0),
+ (2,'s101','A','Bindu','16308536552',22,12),
+ (3,'s102','B','Bindu','16308536552',22,12),
+ (5,'s104','D','Bindu','16308536553',22,12),
+ (6,'s105','D','Bindu','16308536551',22,12),
+ (7,'s106','F','Bindu, USA\r\nTEXAS','16308536551',22,12),
+ (8,'s103','H','Bindu,\r\nTEXAS','16308536556',20,12);
+CREATE TABLE `users` (
+  `uid` int(11) NOT NULL DEFAULT '0',
+  `uname` varchar(10) DEFAULT NULL,
+  `upwd` varchar(10) DEFAULT NULL,
+ `role` varchar(10) DEFAULT NULL,
+  PRIMARY KEY (`uid`)
+) ;
+INSERT INTO `users` (`uid`,`uname`,`upwd`,`role`) VALUES 
+ (1,'bindu','bindu','retailer'),
+ (2,'venkat','venkat','wsaler');

@@ -1,0 +1,59 @@
+
+body {
+	background: #f5f5dc;
+}
+table{
+	margin: 10px 1px 2px 10px;
+}
+table.flds {
+	font-family: verdana;
+	font-size: 14;
+	
+}
+caption {
+	caption-side:top;
+	font: bold 18 cambria;
+	color: #330099;
+}
+table.buttons {
+	table-layout: automatic;
+}
+table.showdetails {
+	table-layout: automatic;
+	font-family: comic sans ms;
+	font-size: 13;
+	border: thin solid;
+}
+table.showdetails caption {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+*.heading {
+	margin-top: 10px; 
+	margin-bottom: 10px;
+	font: bold 22 cambria;
+	color: #330099;
+}
+hr {
+	margin: 15px 0px 15px 0px;
+	color: #ffffff;
+}
+a:link {color: #6495ED; text-decoration: none;}
+a:visited {color: #6495ED; text-decoration: none;}
+a:hover {
+	color: #0000ff;
+	text-decoration: underline;
+	/*background: #abcdef;*/
+}
+a:active {
+	color: #0000ff;
+	text-decoration: none;
+}
+p.inwd {
+	font: 18 calibri;
+	margin: 80px 150px 100px 50px;
+}
+ul {
+	list-style-type: disc;
+	position: absolute;
+}
